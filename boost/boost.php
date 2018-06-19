@@ -6,11 +6,10 @@
  */
 
 $proper_name  = 'Block';
-$version      = '1.3.11';
+$version      = '1.4.0';
 $register     = FALSE;
 $unregister   = FALSE;
 $import_sql   = TRUE;
-$version_http = 'http://phpwebsite.appstate.edu/downloads/modules/block/check.xml';
 $about        = true;
 $priority     = 50;
 $dependency   = true;

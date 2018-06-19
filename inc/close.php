@@ -9,7 +9,7 @@ if (Current_User::allow('block')) {
 
     $key = \Canopy\Key::getCurrent();
     if (\Canopy\Key::checkKey($key) && javascriptEnabled()) {
-        javascript('ckeditor');
+        //javascript('ckeditor');
         $js_address = PHPWS_SOURCE_HTTP . 'mod/block/javascript/addblock/script.js';
         Layout::addJSHeader('<script src="'.$js_address.'" type="text/javascript"></script>', 'addblock');
 

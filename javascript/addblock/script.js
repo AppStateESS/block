@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-$(window).load(function () {
+$(document).ready(function () {
     var editor_called = false;
     $('#save-block').click(function () {
         $('#block-form').submit();

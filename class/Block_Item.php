@@ -232,15 +232,14 @@ class Block_Item {
 
         if (Current_User::allow('block', 'edit_block', $this->id)) {
             $vars['action'] = 'edit';
-            $links[] = PHPWS_Text::secureLink(Icon::show('edit',
-                                    'Edit'), 'block', $vars);
+            $links[] = PHPWS_Text::secureLink('<i class="fas fa-edit mr-1"></i>', 'block', $vars);
             if ($this->allPinned()) {
                 $vars['action'] = 'remove';
-                $links[] = PHPWS_Text::secureLink("<i class='fa fa-flag' title='" . dgettext('block',
+                $links[] = PHPWS_Text::secureLink("<i class='fa fa-flag mr-1' title='" . dgettext('block',
                                         'Remove block from all pages') . "'></i>", 'block', $vars);
             } else {
                 $vars['action'] = 'pin_all';
-                $links[] = PHPWS_Text::secureLink("<i class='far fa-flag' title='" . dgettext('block',
+                $links[] = PHPWS_Text::secureLink("<i class='far fa-flag mr-1' title='" . dgettext('block',
                                         'Display block on all pages') . "'></i>", 'block', $vars);
             }
 
@@ -255,7 +254,7 @@ class Block_Item {
             $confirm_vars['QUESTION'] = 'Are you sure you want to permanently delete this block?';
             $confirm_vars['ADDRESS'] = PHPWS_Text::linkAddress('block', $vars,
                             TRUE);
-            $confirm_vars['LINK'] = '<i class="far fa-trash-alt" title="Delete"></i>';
+            $confirm_vars['LINK'] = '<i class="far fa-trash-alt mr-1 ml-1" title="Delete"></i>';
             $links[] = javascript('confirm', $confirm_vars);
         }
 
