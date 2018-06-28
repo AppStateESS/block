@@ -16,6 +16,12 @@ function block_update(&$content, $currentVersion)
 ----------
 Canopy version
 </pre>';
+        case version_compare($currentVersion, '1.4.1', '<'):
+            $content[] = '<pre>
+1.4.1
+----------
++ Fixed block editor problems.
+</pre>';
     }
     return TRUE;
 }
