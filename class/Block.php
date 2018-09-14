@@ -6,10 +6,10 @@
  * @author Matthew McNaney <mcnaney at gmail dot com>
  * @version $Id$
  */
-
 \phpws\PHPWS_Core::initModClass('block', 'Block_Item.php');
 
-class Block {
+class Block
+{
 
     public static function show()
     {
@@ -21,7 +21,6 @@ class Block {
             return;
         }
         Block::showBlocks($key);
-
     }
 
     public static function showAllBlocks()
@@ -31,19 +30,18 @@ class Block {
         Block::showBlocks($key);
     }
 
-    public static function showBlocks($key)
+    public static function getBlocksByKey($key)
     {
         $db = new PHPWS_DB('block');
         $db->addWhere('block_pinned.key_id', $key->id);
         $db->addWhere('id', 'block_pinned.block_id');
         \Canopy\Key::restrictView($db, 'block');
-        $result = $db->getObjects('Block_Item');
+        return $db->getObjects('Block_Item');
+    }
 
-        if (PHPWS_Error::isError($result)) {
-            PHPWS_Error::log($result);
-            return NULL;
-        }
-
+    public static function showBlocks($key)
+    {
+        $result = self::getBlocksByKey($key);
         if (empty($result)) {
             return NULL;
         }
@@ -53,7 +51,6 @@ class Block {
             Layout::add($block->view(), 'block', $block->getContentVar());
             $GLOBALS['Current_Blocks'][$block->id] = TRUE;
         }
-
     }
 
 }

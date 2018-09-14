@@ -22,6 +22,12 @@ Canopy version
 ----------
 + Fixed block editor problems.
 </pre>';
+        case version_compare($currentVersion, '1.4.2', '<'):
+            $content[] = '<pre>
+1.4.2
+----------
++ Fixed block pinning bugs.
+</pre>';
     }
     return TRUE;
 }
